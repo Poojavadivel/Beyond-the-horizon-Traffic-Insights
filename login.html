@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | BeyondTraffic</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="logo">
+        <i class="fas fa-road"></i>
+        <span>BeyondTraffic</span>
+      </div>
+      <h2>Welcome Back</h2>
+      <p>Select your role to continue</p>
+
+      <div class="role-buttons">
+        <button onclick="selectRole('admin')">Admin</button>
+        <button onclick="selectRole('user')">User</button>
+      </div>
+
+      <form onsubmit="return handleLogin(event)">
+        <div class="input-group">
+          <label for="username"><i class="fas fa-user"></i> Username</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function selectRole(role) {
+      if (role === 'admin') {
+        document.getElementById('username').value = 'admin';
+        document.getElementById('password').value = 'admin123';
+      } else {
+        document.getElementById('username').value = 'user';
+        document.getElementById('password').value = 'user123';
+      }
+    }
+
+    function handleLogin(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (username === 'admin' && password === 'admin123') {
+        window.location.href = 'admin.html';
+      } else if (username === 'user' && password === 'user123') {
+        window.location.href = 'index.html';
+      } else {
+        alert('Invalid credentials!');
+      }
+      return false;
+    }
+  </script>
+</body>
+</html>

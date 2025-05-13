@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Traffic Insights Dashboard(Admin Login)</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .section.hidden {
+      display: none;
+    }
+
+    #placeholder {
+      text-align: center;
+      padding: 50px;
+    }
+
+    #placeholder h1 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    #placeholder img {
+      width: 60%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo"><i class="fas fa-chart-line"></i></div>
+      <nav>
+        <a href="#" onclick="showSection('dashboard')"><i class="fas fa-table-columns"></i> Admin Dashboard</a>
+        <a href="#" onclick="showSection('about')"><i class="fas fa-info-circle"></i> About Us</a>
+        <a href="#" onclick="showSection('description')"><i class="fas fa-align-left"></i> Description</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+  <h1>Traffic Insights (Admin Login)</h1>
+  <div class="top-icons">
+    <i class="fas fa-search"></i>
+    <i class="fas fa-user-circle"></i>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+  </div>
+</header>
+
+
+      <!-- Placeholder section shown by default -->
+      <section id="placeholder" class="section">
+        <h1>Welcome Admin</h1>
+        <img src="images/administrator.png" alt="Traffic Insights Image" style="width: 250px; height: 250px;">
+
+      </section>
+
+      <!-- IBM Cognos Dashboard section -->
+      <section id="dashboard" class="dashboard section hidden">
+        <h4> IBM Cognos Dashboard</h4>
+        <iframe src="https://us3.ca.analytics.ibm.com/bi/?perspective=dashboard&amp;pathRef=.my_folders%2FNew%2Bdashboard%2Bfinal1&amp;closeWindowOnLastView=true&amp;ui_appbar=false&amp;ui_navbar=false&amp;shareMode=embedded&amp;action=view&amp;mode=dashboard&amp;subView=model00000196a8f183cf_00000003" width="320" height="200" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen="" ></iframe>
+      </section>
+
+      <!-- About Us section with flip cards -->
+<section id="about" class="section hidden about">
+  <h3><i class="fas fa-users"></i> Our Team</h3>
+
+  <!-- Team Member Flip Cards -->
+  <div class="team-cards">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="images/member1.avif" alt="Pooja V" class="team-photo">
+          <h4>Pooja</h4>
+        </div>
+        <div class="flip-card-back">
+          <h5>Team Lead</h5>
+          <h6>Role: Team Lead, Dashboard Designer</h6>
+          <p>Pooja, our talented Team Lead and Dashboard Designer, plays a pivotal role in overseeing the development and design of user-friendly and dynamic dashboards. With her keen eye for detail and user experience, she ensures that every project is both functional and visually appealing, driving innovation and seamless interaction for our clients."
+</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="images/member2.avif" alt="Sakthi Sanjuktha S" class="team-photo">
+          <h4>Sakthi Sanjuktha </h4>
+        </div>
+        <div class="flip-card-back">
+          <h5>Member</h5>
+          <h6>Role: Web Developer</h6>
+          <p>Sakthi, our dedicated Web Developer, is the backbone of our web solutions. With a strong command of coding languages and web technologies, he creates robust, responsive, and user-centric websites that cater to both functionality and design, ensuring a smooth digital experience for every user.
+</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="images/member3.avif" alt="Trishaa S G" class="team-photo">
+          <h4>Trishaa</h4>
+        </div>
+        <div class="flip-card-back">
+          <h5>Member</h5>
+          <h6>Role: Dashboard Designer</h6>
+          <p>Trishaa, our skilled Dashboard Designer, brings creativity and precision to every project she works on. With a deep understanding of design principles, she crafts intuitive and visually stunning dashboards that enhance user engagement and provide seamless navigation, making every interaction a smooth experience.
+</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <!-- Description section -->
+      <section id="description" class="section hidden">
+        <h3>Beyond the Horizon: Traffic Insights</h3>
+        <p>Unlocking the Future of Urban Mobility with Data-Driven Intelligence</p>
+        <p>In today’s fast-paced world, traffic congestion, road safety, and environmental concerns are more pressing than ever. Beyond the Horizon: Traffic Insights is a revolutionary platform designed to transform how cities manage and understand traffic.</p>
+        <p>This initiative harnesses the power of big data, IoT-enabled sensors, machine learning algorithms, and geospatial visualization to deliver actionable traffic insights.</p>
+
+        <h4>Key Features:</h4>
+        <ul>
+          <li>Real-Time Traffic Analysis: Monitor live traffic conditions across major roadways.</li>
+          <li>Predictive Traffic Modeling: Estimate travel time and suggest optimal routes.</li>
+          <li>Smart City Integration: Control traffic lights and transport using live data.</li>
+          <li>Sustainable Mobility Insights: Promote greener transportation using emissions data.</li>
+          <li>Interactive Dashboards & Visualizations: View maps, heatmaps, and graphs easily.</li>
+        </ul>
+
+        <p>Let’s move beyond the chaos of today’s traffic and step into a smarter, more connected tomorrow — because the horizon is no longer a limit, but a gateway to progress.</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.classList.add('hidden');
+      });
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    // Show placeholder on initial load
+    window.onload = function () {
+      showSection('placeholder');
+    };
+  </script>
+  <script>
+  function showSection(id) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+      section.classList.add('hidden');
+    });
+    document.getElementById(id).classList.remove('hidden');
+  }
+
+  window.onload = function () {
+    showSection('placeholder');
+  };
+
+  function logout() {
+    // Redirect to login page
+    window.location.href = "login.html";
+  }
+</script>
+
+</body>
+</html>
